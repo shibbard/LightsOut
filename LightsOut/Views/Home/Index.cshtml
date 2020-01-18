@@ -1,0 +1,11 @@
+﻿@model LightsOut.Models.LightsOutViewModel
+@{
+    ViewBag.Title = "Lights Out Game - Click and try to turn off the lights";
+}
+
+<div class="grid-container" style="grid-template-columns: repeat(@Model.GridSize, 1fr);">
+    @foreach(var item in Model.LightModels)
+    {
+        <div class="grid-item@(item.On ? " grid-item-on" :  " grid-item-off")"><a href="@Url.Action("ClickLight", "Home", new { id = item.LightModelId })"></a></div>
+    }
+</div>
