@@ -12,8 +12,8 @@ namespace LightsOut.Services
     /// </summary>
     public class LightsOutService
     {
-        private int _gridSize = 5; 
-        private int _randomClicks = 1; 
+        private int _gridSize = 5; // Default grid size
+        private int _randomClicks = 1; // Default random blocks shown at start
         private IStatefulService _statefulService; 
 
         private List<LightModel> _lightModels; // List of each light to be clicked in the grid
@@ -28,15 +28,18 @@ namespace LightsOut.Services
         {
             _statefulService = statefulService;
 
+            // If grid size passed in set it
             if(gridSize.HasValue)
                 _gridSize = gridSize.Value;
 
+            // If number of random lights passed in set it
             if (randomClicks.HasValue)
                 _randomClicks = randomClicks.Value;
 
             // if the current state is empty then initialise the grid
             if (_statefulService.LoadState() == null)
             {
+                // Initialise the list of lights object
                 _lightModels = new List<LightModel>();
 
                 // initialise grid
@@ -57,7 +60,7 @@ namespace LightsOut.Services
                 // Set random lights already clicked
                 var rnd = _lightModels.OrderBy(x => Guid.NewGuid()).Take(_randomClicks);
                 foreach (var r in rnd)
-                    SetLight(r.LightModelId);
+                    r.On = true; // set single lights on
             }
         }
 
@@ -86,6 +89,9 @@ namespace LightsOut.Services
                 int x = selectedLight.X;
                 int y = selectedLight.Y;
 
+                // Toggle this light
+                ToggleLight(x, y, ref _lightModels);
+
                 // Now toggle the light above
                 ToggleLight(x, y - 1, ref _lightModels);
 
@@ -108,7 +114,10 @@ namespace LightsOut.Services
         /// <param name="lightModels">Pass in a ref to the grid data</param>
         private void ToggleLight(int x, int y, ref List<LightModel> lightModels)
         {
+            // Find the light by the X/Y coords
             var lightAbove = lightModels.SingleOrDefault(li => (li.X == x) && (li.Y == y));
+
+            // If found toggle the on setting
             if (lightAbove != null)
             {
                 lightAbove.On = !lightAbove.On;

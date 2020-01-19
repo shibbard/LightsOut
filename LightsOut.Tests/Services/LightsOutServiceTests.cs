@@ -32,7 +32,7 @@ namespace LightsOutTest.Services
         [TestMethod]
         public void TestSetLight()
         {
-            // gird is 5 by 5 as default, setting light 7, expect 2, 6, 8, 12 to be on
+            // gird is 5 by 5 as default, setting light 7, expect 7, 2, 6, 8, 12 to be on
 
             LightsOutService lightsOutService = new LightsOutService(_statefulService);
 
@@ -40,11 +40,13 @@ namespace LightsOutTest.Services
 
             var grid = lightsOutService.GetGrid();
 
+            var grid7 = grid.Single(gr => gr.LightModelId == 7);
             var grid2 = grid.Single(gr => gr.LightModelId == 2);
             var grid6 = grid.Single(gr => gr.LightModelId == 6);
             var grid8 = grid.Single(gr => gr.LightModelId == 8);
             var grid12 = grid.Single(gr => gr.LightModelId == 12);
 
+            Assert.IsTrue(grid7.On);
             Assert.IsTrue(grid2.On);
             Assert.IsTrue(grid6.On);
             Assert.IsTrue(grid8.On);
