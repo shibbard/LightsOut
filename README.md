@@ -9,11 +9,11 @@ Published app: [https://lightsoutapp.azurewebsites.net/](https://lightsoutapp.az
 
 Statefullness implemented using sessions, and supported using DI so it can be stubbed out in Unit Testing.
 
-UI was not required but implemented as it is a simple few lines of HTML/CSS, CSS Grid used to render it.
+UI was not required but implemented as it is a few simple lines of HTML/CSS, CSS Grid used to render it.
 
 Caveats:
 - IE not supported (requires work on the CSS grid)
 - Unit test coverage minimal
-- UI is minimal, e.g. clicking on a light uses full refresh rather than Ajax, no use controls, not polished styling
-- UI is not responsive
+- UI is minimal, e.g. clicking on a light uses full refresh rather than Ajax, no user controls, not polished styling
+- Grid is not responsive
 
