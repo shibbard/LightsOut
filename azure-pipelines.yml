@@ -35,5 +35,5 @@ steps:
     azureSubscription: 'Free Trial(3418b036-a7b0-4d1a-b7ac-2834de9116ce)'
     appType: 'webApp'
     WebAppName: 'lightsoutapp'
-    package: '$(System.DefaultWorkingDirectory)/shibbard/LightsOut.zip'
+    package: '///d:/a/1/a/LightsOut.zip'
 
