@@ -28,6 +28,8 @@ steps:
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
 
+- task: PublishBuildArtifacts@1
+
 # ASP.NET
 - task: AzureRmWebAppDeployment@4
   inputs:
@@ -43,4 +45,3 @@ steps:
 # Add steps that publish symbols, save build artifacts, deploy, and more:
 # https://docs.microsoft.com/azure/devops/pipelines/apps/aspnet/build-aspnet-4
 
-- task: PublishBuildArtifacts@1
