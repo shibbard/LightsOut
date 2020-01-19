@@ -3,7 +3,7 @@
 
 [![Build Status](https://dev.azure.com/hibbardsimon/hibbardsimon/_apis/build/status/shibbard.LightsOut?branchName=master)](https://dev.azure.com/hibbardsimon/hibbardsimon/_build/latest?definitionId=1&branchName=master)
 
-Quick web app written for as part of an assignment. CI/CD implemented via MS Azure Pipelines, commit to master will trigger build, unit testing and deployment to the Azure web app.
+Quick web app written as part of an assignment. CI/CD implemented via MS Azure Pipelines, commit to master will trigger build, unit testing and deployment to the Azure web app.
 
 Published app: [https://lightsoutapp.azurewebsites.net/](https://lightsoutapp.azurewebsites.net/)
 
