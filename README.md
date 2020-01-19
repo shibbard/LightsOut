@@ -15,4 +15,5 @@ Caveats:
 - IE not supported (requires work on the CSS grid)
 - Unit test coverage minimal
 - UI is minimal, e.g. clicking on a light uses full refresh rather than Ajax, no use controls, not polished styling
+- UI is not responsive
 
