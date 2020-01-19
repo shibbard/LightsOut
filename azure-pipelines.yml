@@ -29,4 +29,11 @@ steps:
     configuration: '$(buildConfiguration)'
 
 - task: PublishBuildArtifacts@1
+- task: AzureRmWebAppDeployment@4
+  inputs:
+    ConnectionType: 'AzureRM'
+    azureSubscription: 'Free Trial(3418b036-a7b0-4d1a-b7ac-2834de9116ce)'
+    appType: 'webApp'
+    WebAppName: 'lightsoutapp'
+    package: '$(System.DefaultWorkingDirectory)/shibbard/LightsOut.zip'
 
