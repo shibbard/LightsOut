@@ -34,7 +34,7 @@ namespace LightsOutTest.Services
         {
             // gird is 5 by 5 as default, setting light 7, expect 7, 2, 6, 8, 12 to be on
 
-            LightsOutService lightsOutService = new LightsOutService(_statefulService);
+            LightsOutService lightsOutService = new LightsOutService(_statefulService, 5, 0);
 
             lightsOutService.SetLight(7);
 
